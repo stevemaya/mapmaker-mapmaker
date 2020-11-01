@@ -3,31 +3,41 @@
 ******************/
 
 	
-function doubleAll(num){	
-	const doubles = [];
-	for(let i = 0; i < num.length; i ++){
-	doubles.push(num[i] * 2);
-	}
+const doubleAll = function(nums){	
+const doubles = nums.map(function(num) {
+	return num * 2;
+});
 	return doubles;
-	}
-	
-	function yelledGreetings(sentence){
-	const exclaimed = [];
-	for(let i = 0; i < sentence.length; i ++){
-	exclaimed.push(sentence[i] + '!');
-	}
-	return exclaimed;
-	}
-	
-	function absoluteValues(num){
-	const absolute = [];
-	for(let i = 0; i < num.length; i++){
-	const value = Math.abs(num[i]);
-	absolute.push(value);
-	}
+};
+const doubleOdd = function(numbers){	
+const doublesOdd = numbers.map(function(number) {
+	return number % 2 === 1 ? number * 2: number;
+})
+	return doublesOdd;
+}
+doubleOdd(1,3);
+
+const yelledGreetings = function(sentences) {
+	yelled = sentences.map(function(sentence) {
+		return sentence + '!';
+	});
+	return yelled;
+};
+
+const absoluteValues = function(nums) {
+	absolute = nums.map(function(num) {
+		return Math.abs(num);
+	});
 	return absolute;
-	}
-	
+};
+
+const upperCaseFirstLetters = function(firstLetters) {
+const first = firstLetters.map(function(firstLetter, ind) {
+		return firstLetter[ind].charAt(0).toUpperCase() + firstLetter[ind].toLowerCase().slice(1);
+	})
+	return first;
+}
+/*
 	function upperCaseFirstLetters(firstLetters){
 	const upperCase = [];
 	for(let i = 0; i < firstLetters.length; i++){
@@ -36,7 +46,7 @@ function doubleAll(num){
 	}
 	return upperCase;
 	}
-	
+
 	function changeToInitials(acronym){
 	const initials = [];
 	for(let i = 0; i < acronym.length; i++){

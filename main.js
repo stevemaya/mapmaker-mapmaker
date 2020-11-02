@@ -11,11 +11,10 @@ const doubles = nums.map(function(num) {
 };
 const doubleOdd = function(numbers){	
 const doublesOdd = numbers.map(function(number) {
-	return number % 2 === 1 ? number * 2: number;
+	return number % 2 === 1 || number % 2 === -1 ? number * 2: number;
 })
 	return doublesOdd;
 }
-doubleOdd(1,3);
 
 const yelledGreetings = function(sentences) {
 	yelled = sentences.map(function(sentence) {
@@ -31,30 +30,25 @@ const absoluteValues = function(nums) {
 	return absolute;
 };
 
-const upperCaseFirstLetters = function(firstLetters) {
-const first = firstLetters.map(function(firstLetter, ind) {
-		return firstLetter[ind].charAt(0).toUpperCase() + firstLetter[ind].toLowerCase().slice(1);
-	})
-	return first;
-}
-/*
-	function upperCaseFirstLetters(firstLetters){
-	const upperCase = [];
-	for(let i = 0; i < firstLetters.length; i++){
-  upperCase.push(firstLetters[i].charAt(0).toUpperCase() +
-  firstLetters[i].toLowerCase().slice(1));
+const upperCaseFirstLetters = function(strs) {
+const result = strs.map(function(str) {
+	let splitStr = str.toLowerCase().split(' ');
+	for (let i = 0; i < splitStr.length; i++) {
+		splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
 	}
-	return upperCase;
-	}
+	return splitStr.join(' ');
+})
+return result;
+};
 
-	function changeToInitials(acronym){
-	const initials = [];
-	for(let i = 0; i < acronym.length; i++){
-  initials.push(acronym[i].toUpperCase().charAt(0) +
-  acronym[i].substring(acronym[i].indexOf(' ')).charAt(1));
-	}
+function changeToInitials(acronym){
+const initials = [];
+for(let i = 0; i < acronym.length; i++){
+initials.push(acronym[i].toUpperCase().charAt(0) +
+acronym[i].substring(acronym[i].indexOf(' ')).charAt(1));
+}
 	return initials;
-  }
+}
   
 
 /*******************************************

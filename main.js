@@ -37,19 +37,30 @@ const result = strs.map(function(str) {
 		splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
 	}
 	return splitStr.join(' ');
-})
+});
 return result;
 };
 
-function changeToInitials(acronym){
-const initials = [];
-for(let i = 0; i < acronym.length; i++){
-initials.push(acronym[i].toUpperCase().charAt(0) +
-acronym[i].substring(acronym[i].indexOf(' ')).charAt(1));
+const changeToInitials = function(names){
+	const result = names.map(function(name){
+	let splitName = name.split(' ');
+	for(let i = 0; i < splitName.length; i++) {
+	return splitName[i].toUpperCase().charAt(0) + splitName[1].toUpperCase().charAt(0);
+	}
+	});
+	return result;
+};
+function add1ToLeft(input){
+	const left = [];
+	for(let i = 0; i < input.length; i++){
+	if(input[i] < 0){
+	left.push(('-1' + Math.abs(input[i])) * 1);
+	} else {
+	left.push(('1' + input[i]) * 1);
+		}
+	}
+	return left;
 }
-	return initials;
-}
-  
 
 /*******************************************
 * CODE DOWN HERE IS FOR INTERNAL USE ONLY. *
